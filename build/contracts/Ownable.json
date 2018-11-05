@@ -22,14 +22,14 @@
       "type": "constructor"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b5060008054600160a060020a0319163317905560c6806100316000396000f300608060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b81146043575b600080fd5b348015604e57600080fd5b506055607e565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b60005473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820627c2ed03c7d2e7477ace2786ca4a99df74ce1a659b53d6f808798e12db46fcf0029",
-  "deployedBytecode": "0x608060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b81146043575b600080fd5b348015604e57600080fd5b506055607e565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b60005473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820627c2ed03c7d2e7477ace2786ca4a99df74ce1a659b53d6f808798e12db46fcf0029",
+  "bytecode": "0x608060405234801561001057600080fd5b5060008054600160a060020a0319163317905560c6806100316000396000f300608060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b81146043575b600080fd5b348015604e57600080fd5b506055607e565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b60005473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820ce1e7a4d945f963d31780828c054b4b3f986b907a243e80ced18f60be7b422460029",
+  "deployedBytecode": "0x608060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b81146043575b600080fd5b348015604e57600080fd5b506055607e565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b60005473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820ce1e7a4d945f963d31780828c054b4b3f986b907a243e80ced18f60be7b422460029",
   "sourceMap": "30:204:1:-;;;85:58;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;117:5:1;:18;;-1:-1:-1;;;;;;117:18:1;125:10;117:18;;;30:204;;;;;;",
   "deployedSourceMap": "30:204:1:-;;;;;;;;;;;;;;;;;;;;;;;56:20;;8:9:-1;5:2;;;30:1;27;20:12;5:2;56:20:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
   "source": "pragma solidity ^0.4.22;\r\n\r\n\r\ncontract Ownable {\r\n\r\n    address public owner;\r\n\r\n    constructor() public {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    modifier onlyOwner() {\r\n        require(msg.sender == owner);\r\n        _;\r\n    }\r\n}\r\n",
-  "sourcePath": "C:\\Users\\user\\Desktop\\blockchain\\Bolt\\contract\\contracts\\Ownable.sol",
+  "sourcePath": "C:\\Users\\user\\Desktop\\blockchain\\contract\\contracts\\Ownable.sol",
   "ast": {
-    "absolutePath": "/C/Users/user/Desktop/blockchain/Bolt/contract/contracts/Ownable.sol",
+    "absolutePath": "/C/Users/user/Desktop/blockchain/contract/contracts/Ownable.sol",
     "exportedSymbols": {
       "Ownable": [
         81
@@ -125,7 +125,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 187,
+                        "referencedDeclaration": 191,
                         "src": "125:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -214,7 +214,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 187,
+                            "referencedDeclaration": 191,
                             "src": "191:3:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -268,10 +268,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        190,
-                        191
+                        194,
+                        195
                       ],
-                      "referencedDeclaration": 190,
+                      "referencedDeclaration": 194,
                       "src": "183:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -324,7 +324,7 @@
     "src": "0:236:1"
   },
   "legacyAST": {
-    "absolutePath": "/C/Users/user/Desktop/blockchain/Bolt/contract/contracts/Ownable.sol",
+    "absolutePath": "/C/Users/user/Desktop/blockchain/contract/contracts/Ownable.sol",
     "exportedSymbols": {
       "Ownable": [
         81
@@ -420,7 +420,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 187,
+                        "referencedDeclaration": 191,
                         "src": "125:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -509,7 +509,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 187,
+                            "referencedDeclaration": 191,
                             "src": "191:3:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -563,10 +563,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        190,
-                        191
+                        194,
+                        195
                       ],
-                      "referencedDeclaration": 190,
+                      "referencedDeclaration": 194,
                       "src": "183:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -624,5 +624,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-05T11:00:21.919Z"
+  "updatedAt": "2018-11-05T12:07:52.366Z"
 }
