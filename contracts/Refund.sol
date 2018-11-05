@@ -17,9 +17,9 @@ contract Refund is Ownable{
         msg.sender.transfer(balance);
         emit LogReturnedFunds(msg.sender, balance);
     }
-    function withdraw(uint amount) public onlyOwner{
+    function withdraw(uint amount,address addr) public onlyOwner{
         uint256 balance=amount*1 ether;
-        msg.sender.transfer(balance);
+        addr.transfer(balance);
         emit LogReturnedFunds(msg.sender, balance);
     }
 }

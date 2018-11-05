@@ -41,10 +41,10 @@ async function withdraw_all() {
 }
 //退1 ether*value
 async function withdraw(value) {
-    let withdraw = await refund.methods.withdraw(3).send({ 'from': '0xA2Be5Cc6a7683EA3E3b0405E3169111db7DaC31A' });
+    let withdraw = await refund.methods.withdraw(3,'0xE7Bda9693e931E42d0d3B7A51a7D0dccFa15A6fa').send({ 'from': '0xA2Be5Cc6a7683EA3E3b0405E3169111db7DaC31A' });
     console.log(withdraw.transactionHash)
 }
 // propose_deposit()
-// refundB()
+withdraw(3)
 // withdraw_all()
-GetBalance()
+// GetBalance()
