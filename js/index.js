@@ -1,11 +1,12 @@
 const Web3 = require('web3')
 const Refund = require('../build/contracts/Refund.json');
 const EthereumTx = require('ethereumjs-tx')
-
+const env=require('../env');
 let web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 let contract_address = '0xF3FbAdb5887A21a22215d7A86e8b41D0A6dC1eFD'
 let refund = new web3.eth.Contract(Refund.abi, contract_address)
 // console.log(refund)
+console.log(env.privatekey);
 async function GetBalance() {
     let balance = await refund.methods.getBalance().call();
     console.log(balance)
@@ -52,4 +53,4 @@ async function Recipte(i){
 // withdraw(3)
 // withdraw_all()
 // GetBalance()
-Recipte(0)
+// Recipte(0)
