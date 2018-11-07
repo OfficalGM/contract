@@ -1,3 +1,10 @@
+let env = require('./env');
+let WalletProvider = require('truffle-wallet-provider');
+let Wallet = require('ethereumjs-wallet');
+
+let testnet = env.testnet
+let testnetWallet = Wallet.fromPrivateKey(new Buffer(testnet.privatekey, 'hex'));
+
 module.exports = {
   solc: {
     // Optional: Optimizer settings
@@ -16,6 +23,14 @@ module.exports = {
       network_id: "*", // Match any network id
       gas: 4700000,
       // gasPrice - Use 10 Gwei
+      gasPrice: 10000000000
+    },
+    testnet: {
+      provider: function () {
+        return new WalletProvider(testnetWallet, testnet.web3Url);
+      },
+      network_id: '*',
+      gas: 4700000,
       gasPrice: 10000000000
     }
   }
