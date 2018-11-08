@@ -1,11 +1,12 @@
 // contract address 0xd44af5c682157f493ba2ebede6e0506428debf67
+// contract address 0xedD1189cC6904c5046D95Ce864f41a943ecAAc9F
 // private key address 0xc222fDe7CaE05d8514DF13C901e4BEa3F23523cf
 const Web3 = require('web3')
 const Refund = require('../build/contracts/Refund.json');
 const EthereumTx = require('ethereumjs-tx')
 const env = require('../env');
 let web3 = new Web3(new Web3.providers.HttpProvider(env.testnet.web3Url));
-let contract_address = '0xd44af5c682157f493ba2ebede6e0506428debf67'
+let contract_address = '0xedD1189cC6904c5046D95Ce864f41a943ecAAc9F'
 const account_address = '0xc222fDe7CaE05d8514DF13C901e4BEa3F23523cf'
 let refund = new web3.eth.Contract(Refund.abi, contract_address)
 // console.log(refund)
@@ -80,4 +81,4 @@ async function withdraw(value) {
 // withdraw(5)
 // withdraw_all()
 // GetBalance()
-// Recipte(2)
+// Recipte(0)
