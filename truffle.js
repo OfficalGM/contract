@@ -4,7 +4,8 @@ let Wallet = require('ethereumjs-wallet');
 
 let testnet = env.testnet
 let testnetWallet = Wallet.fromPrivateKey(new Buffer(testnet.privatekey, 'hex'));
-
+let devnet=env.development
+let devnetWallet=Wallet.fromPrivateKey(new Buffer(devnet.privatekey, 'hex'));
 module.exports = {
   solc: {
     // Optional: Optimizer settings
@@ -18,8 +19,9 @@ module.exports = {
   },
   networks: {
     development: {
-      host: "127.0.0.1",
-      port: 8545,
+      provider:function(){
+        return new WalletProvider(devnetWallet, devnet.web3Url);
+      },
       network_id: "*", // Match any network id
       gas: 4700000,
       // gasPrice - Use 10 Gwei

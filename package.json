@@ -7,8 +7,11 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy":"truffle deploy --reset --network development",
+    "deploy_testnet":"truffle deploy --reset --network testnet",
+    "test_dev":"node js/index.js",
+    "test_testnet":"node js/testnet.js"
   },
   "keywords": [],
   "author": "",
