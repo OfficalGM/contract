@@ -15,95 +15,6 @@ async function GetBalance() {
     let balance = await refund.methods.getBalance().call();
     console.log(balance)
 }
-
-async function propose_deposit() {
-    const privateKey = Buffer.from(env.testnet.privatekey, 'hex')
-    let value = web3.utils.toHex(web3.utils.toWei('10', 'ether'));
-    let nonce = await web3.eth.getTransactionCount(account_address, 'pending');//private key address
-    nonce = web3.utils.toHex(nonce)
-    let gas = 4700000
-    let gasPrice = '0x2540be400'
-    let txParams = {
-        data: 'pay',
-        from: account_address,
-        to: contract_address,
-        value: value,
-        nonce: nonce,
-        gas: gas,
-        gasPrice: gasPrice,
-    }
-    let tx = new EthereumTx(txParams);
-    tx.sign(privateKey)
-    let serializedTx = tx.serialize();
-    let serialize = '0x' + serializedTx.toString('Hex');
-    // let send=await web3.eth.sendRawTransaction(serialize);
-    try {
-        let send = await web3.eth.sendSignedTransaction(serialize)
-        console.log(send)
-    } catch (err) {
-        console.log(err)
-    }
-}
-//退全部款
-async function withdraw_all() {
-    const contractfunction = refund.methods.refundBalance();
-    const abi = contractfunction.encodeABI();
-    const privateKey = Buffer.from(env.testnet.privatekey, 'hex')
-    let nonce = await web3.eth.getTransactionCount(account_address, 'pending');//private key address
-    nonce = web3.utils.toHex(nonce)
-
-    let gas = 4700000
-    let gasPrice = '0x2540be400'
-    let txParams = {
-        nonce: nonce,
-        data: abi,
-        from: account_address,
-        to:contract_address,
-        gas: gas,
-        gasPrice: gasPrice,
-    }
-    let tx = new EthereumTx(txParams);
-    tx.sign(privateKey)
-    let serializedTx = tx.serialize();
-    let serialize = '0x' + serializedTx.toString('Hex');
-    try {
-        let withdraw = await web3.eth.sendSignedTransaction(serialize)
-        console.log(withdraw)
-    } catch (err) {
-        console.log(err)
-    }
-
-}
-//退1 ether*value
-async function withdraw(value) {
-    const contractfunction = refund.methods.withdraw(value,account_address);
-    const abi = contractfunction.encodeABI();
-    const privateKey = Buffer.from(env.testnet.privatekey, 'hex')
-    let nonce = await web3.eth.getTransactionCount(account_address, 'pending');//private key address
-    nonce = web3.utils.toHex(nonce)
-
-    let gas = 4700000
-    let gasPrice = '0x2540be400'
-    let txParams = {
-        nonce: nonce,
-        data: abi,
-        from: account_address,
-        to:contract_address,
-        gas: gas,
-        gasPrice: gasPrice,
-    }
-    let tx = new EthereumTx(txParams);
-    tx.sign(privateKey)
-    let serializedTx = tx.serialize();
-    let serialize = '0x' + serializedTx.toString('Hex');
-    try {
-        let withdraw = await web3.eth.sendSignedTransaction(serialize)
-        console.log(withdraw)
-    } catch (err) {
-        console.log(err)
-    }
-   
-}
 async function Recipte(i) {
     let recipte = await refund.methods.recipte(i).call();
     console.log(recipte)
@@ -112,14 +23,61 @@ async function getOwner() {
     let own = await refund.methods.owner().call();
     console.log(own);
 }
-async function balance() {
-    let b = await web3.eth.getBalance('0xc222fDe7CaE05d8514DF13C901e4BEa3F23523cf')
-    console.log(b)
+
+async function sign_sendTransaction(privatekey,data, nonce, from, to, value) {
+    let gas = 4700000
+    let gasPrice = '0x2540be400'
+    let txParams = {
+        nonce: nonce,
+        data: data,
+        from: from,
+        to: to,
+        gas: gas,
+        value: value,
+        gasPrice: gasPrice,
+    }
+    let tx = new EthereumTx(txParams);
+    tx.sign(privatekey)
+    let serializedTx = tx.serialize();
+    let serialize = '0x' + serializedTx.toString('Hex');
+    try {
+        let send = await web3.eth.sendSignedTransaction(serialize)
+        console.log(send)
+    } catch (err) {
+        return err
+    }
 }
-// balance()
+async function propose_deposit(){
+    const privateKey = Buffer.from(env.testnet.privatekey, 'hex')
+    let value = web3.utils.toHex(web3.utils.toWei('10', 'ether'));
+    let nonce = await web3.eth.getTransactionCount(account_address, 'pending');
+    nonce = web3.utils.toHex(nonce)
+    sign_sendTransaction(privateKey,'pay',nonce,account_address,contract_address,value)
+}
+//退全部款
+async function withdraw_all() {
+    const privateKey = Buffer.from(env.testnet.privatekey, 'hex')
+    const contractfunction = refund.methods.refundBalance();
+    const abi = contractfunction.encodeABI();
+    let nonce = await web3.eth.getTransactionCount(account_address, 'pending');//private key address
+    nonce = web3.utils.toHex(nonce)
+    sign_sendTransaction(privateKey,abi,nonce,account_address,contract_address,null)
+}
+    
+//退1 ether*value
+async function withdraw(value) {
+    const privateKey = Buffer.from(env.testnet.privatekey, 'hex')
+    const contractfunction = refund.methods.withdraw(value, account_address);
+    const abi = contractfunction.encodeABI();
+    let nonce = await web3.eth.getTransactionCount(account_address, 'pending');//private key address
+    nonce = web3.utils.toHex(nonce)
+    sign_sendTransaction(privateKey,abi,nonce,account_address,contract_address,null)
+
+}
+
 // getOwner()
 // propose_deposit()
-// withdraw(3)
-withdraw_all()
+withdraw(5)
+// withdraw_all()
 // GetBalance()
 // Recipte(2)

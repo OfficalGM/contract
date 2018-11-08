@@ -5,7 +5,6 @@ const env=require('../env');
 let web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 let contract_address = '0x9683eeb68fe0d3df151559670c83a40fbfd8472b'
 let refund = new web3.eth.Contract(Refund.abi, contract_address)
-// console.log(refund)
 const account_address='0xA2Be5Cc6a7683EA3E3b0405E3169111db7DaC31A'
 async function GetBalance() {
     let balance = await refund.methods.getBalance().call();
