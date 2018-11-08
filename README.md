@@ -1,5 +1,10 @@
 # contract
-
+## 環境
+```
+npm install -g truffle 
+npm install -g ganache-cli
+npm install
+```
 ## 複製設定檔
 ```
 cp env.js.example env.js
