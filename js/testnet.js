@@ -77,7 +77,7 @@ async function withdraw(value) {
 
 // getOwner()
 // propose_deposit()
-withdraw(5)
+// withdraw(5)
 // withdraw_all()
 // GetBalance()
 // Recipte(2)
