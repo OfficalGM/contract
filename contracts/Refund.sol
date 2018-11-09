@@ -3,7 +3,6 @@ import  './Ownable.sol';
 contract Refund is Ownable{
     event LogReceivedFunds(address sender, uint amount);
     event LogReturnedFunds(address recipient, uint amount);
-    // Recipte[] public recipte;
     uint256 public RecipteNumber;
     mapping (uint256 =>Recipte) public recipte;
     struct Recipte{
@@ -13,7 +12,6 @@ contract Refund is Ownable{
     }
     function() public payable {
         recipte[RecipteNumber++]=Recipte(address(this),msg.sender,msg.value);
-        // recipte.push(Recipte(address(this),msg.sender,msg.value));
         emit LogReceivedFunds(msg.sender, msg.value);
     }
     function getBalance() public view returns (uint256) {
