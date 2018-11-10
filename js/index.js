@@ -10,7 +10,7 @@ async function GetBalance() {
     let balance = await refund.methods.getBalance().call();
     console.log(balance)
 }
-async function propose_deposit() {
+async function Propose_Deposit() {
     const privateKey = Buffer.from(env.development.privatekey, 'hex')
     let value = web3.utils.toHex(web3.utils.toWei('5', 'ether'));
     let nonce = await web3.eth.getTransactionCount(account_address, 'pending');//private key address
@@ -35,12 +35,12 @@ async function propose_deposit() {
     console.log(send)
 }
 //退全部款
-async function withdraw_all() {
+async function Withdraw_All() {
     let withdraw = await refund.methods.refundBalance().send({ 'from':account_address });
     console.log(withdraw.transactionHash)
 }
 //退1 ether*value
-async function withdraw(value) {
+async function Withdraw(value) {
     let withdraw = await refund.methods.withdraw(3,'0xE7Bda9693e931E42d0d3B7A51a7D0dccFa15A6fa').send({ 'from': account_address });
     console.log(withdraw.transactionHash)
 }
@@ -48,12 +48,16 @@ async function Recipte(i){
     let recipte=await refund.methods.recipte(i).call();
     console.log(recipte)
 }
-async function getOwner(){
+async function GetOwner(){
     let own=await refund.methods.owner().call();
     console.log(own);
 }
-// propose_deposit()
-// withdraw(3)
-// withdraw_all()
+async function GetTreeNumber(){
+    let number=await refund.methods.tree().call();
+    console.log(number);
+}
+// Propose_Deposit()
+// Withdraw(3)
+// Withdraw_all()
 // GetBalance()
 // Recipte(0)
