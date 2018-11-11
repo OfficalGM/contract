@@ -22,14 +22,14 @@
       "type": "constructor"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b5060008054600160a060020a0319163317905560c6806100316000396000f300608060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b81146043575b600080fd5b348015604e57600080fd5b506055607e565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b60005473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a7230582012b395c42cc8a1f7ea4341924d41229028c2a5f10eaa289647fd088e071e87d40029",
-  "deployedBytecode": "0x608060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b81146043575b600080fd5b348015604e57600080fd5b506055607e565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b60005473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a7230582012b395c42cc8a1f7ea4341924d41229028c2a5f10eaa289647fd088e071e87d40029",
+  "bytecode": "0x608060405234801561001057600080fd5b5060008054600160a060020a0319163317905560c6806100316000396000f300608060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b81146043575b600080fd5b348015604e57600080fd5b506055607e565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b60005473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a7230582002906e000aab246d6e32c00581d11843dea7501afae3d063b5c8a4fb022b526e0029",
+  "deployedBytecode": "0x608060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b81146043575b600080fd5b348015604e57600080fd5b506055607e565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b60005473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a7230582002906e000aab246d6e32c00581d11843dea7501afae3d063b5c8a4fb022b526e0029",
   "sourceMap": "27:192:1:-;;;78:56;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;109:5:1;:18;;-1:-1:-1;;;;;;109:18:1;117:10;109:18;;;27:192;;;;;;",
   "deployedSourceMap": "27:192:1:-;;;;;;;;;;;;;;;;;;;;;;;51:20;;8:9:-1;5:2;;;30:1;27;20:12;5:2;51:20:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
   "source": "pragma solidity ^0.4.22;\n\n\ncontract Ownable {\n\n    address public owner;\n\n    constructor() public {\n        owner = msg.sender;\n    }\n\n    modifier onlyOwner() {\n        require(msg.sender == owner);\n        _;\n    }\n}\n",
-  "sourcePath": "/Users/tony/blockchain/case/contract/contracts/Ownable.sol",
+  "sourcePath": "/Users/tony/blockchain/project/contract/contracts/Ownable.sol",
   "ast": {
-    "absolutePath": "/Users/tony/blockchain/case/contract/contracts/Ownable.sol",
+    "absolutePath": "/Users/tony/blockchain/project/contract/contracts/Ownable.sol",
     "exportedSymbols": {
       "Ownable": [
         81
@@ -125,7 +125,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 215,
+                        "referencedDeclaration": 249,
                         "src": "117:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -214,7 +214,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 215,
+                            "referencedDeclaration": 249,
                             "src": "179:3:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -268,10 +268,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        218,
-                        219
+                        252,
+                        253
                       ],
-                      "referencedDeclaration": 218,
+                      "referencedDeclaration": 252,
                       "src": "171:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -324,7 +324,7 @@
     "src": "0:220:1"
   },
   "legacyAST": {
-    "absolutePath": "/Users/tony/blockchain/case/contract/contracts/Ownable.sol",
+    "absolutePath": "/Users/tony/blockchain/project/contract/contracts/Ownable.sol",
     "exportedSymbols": {
       "Ownable": [
         81
@@ -420,7 +420,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 215,
+                        "referencedDeclaration": 249,
                         "src": "117:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -509,7 +509,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 215,
+                            "referencedDeclaration": 249,
                             "src": "179:3:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -563,10 +563,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        218,
-                        219
+                        252,
+                        253
                       ],
-                      "referencedDeclaration": 218,
+                      "referencedDeclaration": 252,
                       "src": "171:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -624,5 +624,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-08T13:03:50.437Z"
+  "updatedAt": "2018-11-10T13:07:08.186Z"
 }
