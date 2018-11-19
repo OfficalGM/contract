@@ -15,4 +15,8 @@ contract Auth {
         tree[TreeNumber++]=Tree(_roothash);
         return true;
     }
+    function SliceRootHash(bytes32[] slice) public returns(bool){
+        require(slice.length > 0, "slice.length = 0");
+        return true;
+    }
 }
