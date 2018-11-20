@@ -10,6 +10,7 @@ async function GetBalance() {
     let balance = await refund.methods.getBalance().call();
     console.log(balance)
 }
+
 async function Propose_Deposit() {
     const privateKey = Buffer.from(env.development.privatekey, 'hex')
     let value = web3.utils.toHex(web3.utils.toWei('5', 'ether'));
