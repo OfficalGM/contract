@@ -2,9 +2,9 @@ pragma solidity ^0.4.22;
 
 contract Auth {
     mapping(uint256=>Tree) public tree;
-    event RH(bytes32 b);
-    event RH2(bytes32 b);
     uint256 public TreeNumber;
+    event R(bytes32 t);
+    event A(bool b,bytes32 t,bytes32 temp);
     struct Tree {
         bytes32 RootHash;
     }
@@ -16,36 +16,36 @@ contract Auth {
         tree[TreeNumber++]=Tree(_roothash);
         return true;
     }
-    function SliceRootHash(uint idx,bytes32[] slice) public returns(bool) {
+    function SliceRootHash(uint idx,bytes32[] slice) public pure returns(bool) {
         require(slice.length > 0, "slice.length = 0");
         // bytes32 rootHash = slice[0];
-        string memory str;
         bytes32 temp;
-        for(uint i=slice.length-1;i>2;i=i/2) {
-            str=strConcat(bytes32ToString(slice[i-1]),bytes32ToString(slice[i]));
-            temp=stringToBytes32(str);
-            temp=keccak256(abi.encodePacked(temp));
-            emit RH(temp);
-            emit RH2(slice[idx/2-1]);
-            if(slice[idx/2-1]==temp)
-                return true;
-            else{
-                return false;
-            }
-            // require(slice[idx/2-1]==temp,"wrong");
+        uint index=idx;
+        bool b=false;
+        for(uint i=slice.length-1;i>1;i=i/2) {
+            index=index/2;
+            temp=keccak256(abi.encodePacked(slice[i-1],slice[i]));
+            b=setTest(slice[index-1],temp);
         }
+        return b;
+        
     } 
+    
     function setTest(bytes32 _h,bytes32 _s) public pure returns(bool){
-        bytes32 temp=keccak256(abi.encodePacked(_s));
         for(uint i=0;i<32;i++){
-            if(temp[i]!=_h[i])
-                return false;
+            if(_s[i]!=_h[i]){
+                 
+                 return false;
+            }
         }
         return true;
     }
-    function getKeccak256() public pure returns (bytes32) {
-        // bytes32 a=stringToBytes32(_a);
-        return keccak256(abi.encodePacked("AA"));
+    function getKeccak256_2(string _a) public pure returns(bytes32){
+         return keccak256(abi.encodePacked(_a));
+    }
+    function getKeccak256(bytes32 _a,bytes32 _b) public pure returns (bytes32) {
+        
+        return keccak256(abi.encodePacked(_a,_b));
     }
     function strConcat(string _a,string _b) internal pure returns (string) {
         bytes memory bytes_a = bytes(_a);
