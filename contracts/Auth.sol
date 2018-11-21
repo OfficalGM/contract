@@ -44,7 +44,7 @@ contract Auth {
         return false;
     }
     function getKeccak256() public view returns (bytes32) {
-        return keccak256("AA");
+        return keccak256(abi.encodePacked("AA"));
     }
     function strConcat(string _a,string _b) internal pure returns (string) {
         bytes memory bytes_a = bytes(_a);
