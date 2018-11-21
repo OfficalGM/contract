@@ -35,15 +35,16 @@ contract Auth {
             // require(slice[idx/2-1]==temp,"wrong");
         }
     } 
-    function setTest(bytes32 _h,string _s) public pure returns(bool){
-        bytes32 a=stringToBytes32(_s);
-        bytes32 temp=keccak256(abi.encodePacked(a));
-        if(temp==_h){
-            return true;
+    function setTest(bytes32 _h,bytes32 _s) public pure returns(bool){
+        bytes32 temp=keccak256(abi.encodePacked(_s));
+        for(uint i=0;i<32;i++){
+            if(temp[i]!=_h[i])
+                return false;
         }
-        return false;
+        return true;
     }
-    function getKeccak256() public view returns (bytes32) {
+    function getKeccak256() public pure returns (bytes32) {
+        // bytes32 a=stringToBytes32(_a);
         return keccak256(abi.encodePacked("AA"));
     }
     function strConcat(string _a,string _b) internal pure returns (string) {
